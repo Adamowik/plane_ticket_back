@@ -9,18 +9,18 @@ import java.util.stream.Collectors;
 public class AirportMapper {
 
 
-    public static List<AirportDTO> mapAirportToAirportDTOList(List<Airport> airports) {
+    public static List<AirportDTO> mapAirportToAirportDTOList(List<Airport> airports){
 
         return airports.stream().map(airport -> getAirport(airport)).collect(Collectors.toList());
     }
 
 
-    public static AirportDTO mapAirportToAirportDTO(Airport airport) {
+    public static AirportDTO mapAirportToAirportDTO(Airport airport){
 
         return getAirport(airport);
     }
 
-    public static Airport mapDTOToAirport(AirportDTO airportDTO) {
+    public static Airport mapDTOToAirport(AirportDTO airportDTO){
 
         Airport airport = new Airport();
 

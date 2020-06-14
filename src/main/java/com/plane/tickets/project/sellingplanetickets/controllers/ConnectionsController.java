@@ -34,4 +34,20 @@ public class ConnectionsController {
         return connectionsService.getConnectionsByDepartureAirport(id);
     }
 
+
+    @PostMapping(value = "/connections")
+    public void addPlane(@RequestBody ConnectionsDTO connections) {
+        connectionsService.addConnections(connections);
+    }
+
+    @PutMapping(value = "/connections/{id}")
+    public void updateConnections(@RequestBody ConnectionsDTO connections, @PathVariable int id) {
+        connectionsService.updateConnections(connections, id);
+    }
+
+    @DeleteMapping(value = "/connections/{id}")
+    public void deleteConnections(@PathVariable int id) {
+        connectionsService.deleteConnections(id);
+    }
+
 }

@@ -31,4 +31,19 @@ public class AirportService {
         return airportDto;
     }
 
+    public void addAirport(AirportDTO airportDTO) {
+        Airport airport = AirportMapper.mapDTOToAirport(airportDTO);
+        airportRepository.save(airport);
+    }
+
+    public void updateAirport(AirportDTO airportDTO, int id) {
+        Airport airport = AirportMapper.mapDTOToAirport(airportDTO);
+        airportRepository.save(airport);
+    }
+
+    public void deleteAirport(int id) {
+        airportRepository.deleteById(id);
+    }
+
+
 }

@@ -25,4 +25,20 @@ public class AirportController {
     public AirportDTO getAirport(@PathVariable int id) {
         return airportService.getAirport(id);
     }
+
+    @PostMapping(value = "/airports")
+    public void addAirport(@RequestBody AirportDTO airport) {
+        airportService.addAirport(airport);
+    }
+
+    @PutMapping(value = "/airports/{id}")
+    public void updateAirport(@RequestBody AirportDTO airport, @PathVariable int id) {
+        airportService.updateAirport(airport, id);
+    }
+
+    @DeleteMapping(value = "/airports/{id}")
+    public void deleteAirport(@PathVariable int id) {
+        airportService.deleteAirport(id);
+    }
+
 }

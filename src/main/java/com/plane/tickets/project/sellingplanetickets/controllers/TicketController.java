@@ -1,6 +1,8 @@
 package com.plane.tickets.project.sellingplanetickets.controllers;
 
 import com.plane.tickets.project.sellingplanetickets.DTO.TicketDTO;
+import com.plane.tickets.project.sellingplanetickets.model.Ticket;
+import com.plane.tickets.project.sellingplanetickets.services.NotificationService;
 import com.plane.tickets.project.sellingplanetickets.services.TicketService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.MailException;
@@ -14,6 +16,10 @@ import java.util.List;
 public class TicketController {
     @Autowired
     private TicketService ticketService;
+
+    @Autowired
+    private NotificationService notificationService;
+
 
     @RequestMapping("/tickets")
     public List<TicketDTO> getAllTickets() {
@@ -34,6 +40,28 @@ public class TicketController {
     @RequestMapping("/tickets/{id}")
     public TicketDTO getTicket(@PathVariable int id) {
         return ticketService.getTicket(id);
+    }
+
+    @PostMapping(value = "/tickets")
+    public void addTicket(@RequestBody TicketDTO ticket) {
+        ticketService.addTicket(ticket);
+        try {
+            notificationService.sendTicket(ticket);
+        } catch (MailException e) {
+            System.out.println("Wysylanie maia nieudane");
+        } catch (ParseException f) {
+            System.out.println("Zamiana daty nieudana");
+        }
+    }
+
+    @PutMapping(value = "/tickets/{id}")
+    public void updateTicket(@RequestBody TicketDTO ticket, @PathVariable int id) {
+        ticketService.updateTicket(ticket, id);
+    }
+
+    @DeleteMapping(value = "/tickets/{id}")
+    public void deleteTicket(@PathVariable int id) {
+        ticketService.deleteTicket(id);
     }
 
 }

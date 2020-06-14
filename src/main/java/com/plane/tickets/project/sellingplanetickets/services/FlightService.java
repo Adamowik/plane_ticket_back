@@ -29,6 +29,20 @@ public class FlightService {
         return FlightMapper.mapFlightToDTO(flight);
     }
 
+    public void addFlight(FlightDTO flightDTO) {
+        Flight flight = FlightMapper.mapDTOToFlight(flightDTO);
+        flightRepository.save(flight);
+    }
+
+    public void updateFlight(FlightDTO flightDTO, int id) {
+        Flight flight = FlightMapper.mapDTOToFlight(flightDTO);
+        flightRepository.save(flight);
+    }
+
+    public void deleteFlight(int id) {
+        flightRepository.deleteById(id);
+    }
+
     public List<FlightDTO> getFlightsByPlane(int id) {
         List<Flight> flights = new ArrayList<>();
         flightRepository.findByPlanePlaneID(id).forEach(flights::add);

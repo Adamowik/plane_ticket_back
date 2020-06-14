@@ -19,7 +19,7 @@ public class PlaneMapper {
         return getPlane(plane);
     }
 
-    public static Plane mapDTOToPlane(PlaneDTO planeDTO) {
+    public static Plane mapDTOToPlane(PlaneDTO planeDTO){
         Plane plane = new Plane();
 
         plane.setPlaneID(planeDTO.getPlaneID());

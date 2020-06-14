@@ -21,8 +21,7 @@ public class Plane {
     @OneToMany(mappedBy = "plane", cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     private List<Flight> flights;
 
-    public Plane() {
-    }
+    public Plane() { }
 
     public List<Flight> getFlights() {
         return flights;

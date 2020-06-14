@@ -27,8 +27,29 @@ public class FlightController {
     }
 
     @RequestMapping("/planes/{id}/flights")
-    public List<FlightDTO> getAllFlightsByPlane(@PathVariable int id) {
+    public List<FlightDTO> getAllFlightsByPlane(@PathVariable int id){
         return flightService.getFlightsByPlane(id);
+    }
+
+
+    @RequestMapping("/connections/{id}/flights")
+    public List<FlightDTO> getAllFlightsByConnection(@PathVariable int id){
+        return flightService.getFlightsByConnection(id);
+    }
+
+    @PostMapping(value = "/flights")
+    public void addFlight(@RequestBody FlightDTO flight) {
+        flightService.addFlight(flight);
+    }
+
+    @PutMapping(value = "/flights/{id}")
+    public void updateFlight(@RequestBody FlightDTO flight, @PathVariable int id) {
+        flightService.updateFlight(flight, id);
+    }
+
+    @DeleteMapping(value = "/flights/{id}")
+    public void deleteFlight(@PathVariable int id) {
+        flightService.deleteFlight(id);
     }
 
 }

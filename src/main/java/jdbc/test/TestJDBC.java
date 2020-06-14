@@ -11,14 +11,15 @@ public class TestJDBC {
         String user = "root";
         String password = "admin";
 
-        try {
+        try{
             System.out.println("Connecting to database");
 
-            Connection myConn = DriverManager.getConnection(jdbcUrl, user, password);
+            Connection myConn = DriverManager.getConnection(jdbcUrl,user,password);
 
             System.out.println("Connection succesful ");
             System.out.println(myConn.isValid(10));
-        } catch (Exception e) {
+        }
+        catch(Exception e){
             System.out.println("aa");
             e.printStackTrace();
         }

@@ -21,28 +21,28 @@ import org.hibernate.annotations.NaturalId;
                 "email"
         })
 })
-public class User {
+public class User{
     @Id
-    @Column(name = "id")
+    @Column(name="id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "name")
+    @Column(name="name")
     private String name;
 
-    @Column(name = "surname")
+    @Column(name="surname")
     private String surname;
 
-    @Column(name = "username")
+    @Column(name="username")
     private String username;
 
-    @Column(name = "email")
+    @Column(name="email")
     private String email;
 
-    @Column(name = "password")
+    @Column(name="password")
     private String password;
 
-    @Column(name = "phone_number")
+    @Column(name="phone_number")
     private String phoneNumber;
 
     @JsonIgnore
@@ -56,8 +56,7 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles = new HashSet<>();
 
-    public User() {
-    }
+    public User() {}
 
     public User(String name, String surname, String username, String email, String password, String phoneNumber) {
         this.name = name;

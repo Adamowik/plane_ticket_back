@@ -36,6 +36,20 @@ public class TicketService {
         return TicketMapper.mapTicketToDTO(ticket);
     }
 
+    public void addTicket(TicketDTO ticketDTO) {
+        Ticket ticket = TicketMapper.mapDTOToTicket(ticketDTO);
+        ticketRepository.save(ticket);
+    }
+
+    public void updateTicket(TicketDTO ticketDTO, int id) {
+        Ticket ticket = TicketMapper.mapDTOToTicket(ticketDTO);
+        ticketRepository.save(ticket);
+    }
+
+    public void deleteTicket(int id) {
+        ticketRepository.deleteById(id);
+    }
+
     public List<TicketDTO> getAllTicketsByFlight(int id) {
         List<Ticket> tickets = new ArrayList<>();
         ticketRepository.findByFlightFlightID(id).forEach(tickets::add);

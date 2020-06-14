@@ -14,11 +14,11 @@ public class ConnectionMapper {
         return connections.stream().map(ConnectionMapper::getConnectionDTO).collect(Collectors.toList());
     }
 
-    public static ConnectionsDTO mapConnectionToDTO(Connections connections) {
-        return getConnectionDTO(connections);
+    public static ConnectionsDTO mapConnectionToDTO(Connections connections){
+       return getConnectionDTO(connections);
     }
 
-    public static Connections mapDTOToConnection(ConnectionsDTO connectionsDTO) {
+    public static Connections mapDTOToConnection(ConnectionsDTO connectionsDTO){
         Connections connections = new Connections();
 
         connections.setConnectionID(connectionsDTO.getConnectionID());
@@ -29,7 +29,7 @@ public class ConnectionMapper {
         return connections;
     }
 
-    private static ConnectionsDTO getConnectionDTO(Connections connections) {
+    private static ConnectionsDTO getConnectionDTO(Connections connections){
         ConnectionsDTO connectionsDTO = new ConnectionsDTO();
 
         connectionsDTO.setConnectionID(connections.getConnectionID())
@@ -39,6 +39,7 @@ public class ConnectionMapper {
 
         return connectionsDTO;
     }
+
 
 
 }

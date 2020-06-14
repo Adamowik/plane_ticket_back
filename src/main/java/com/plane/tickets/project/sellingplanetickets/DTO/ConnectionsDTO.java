@@ -19,21 +19,21 @@ import java.util.List;
 @Accessors(chain = true)
 public class ConnectionsDTO {
 
-    private int connectionID;
-    private List<Flight> flights;
-    private Airport departureAirport;
-    private Airport arrivalAirport;
+        private int connectionID;
+        private List<Flight> flights;
+        private Airport departureAirport;
+        private Airport arrivalAirport;
 
 
-    @Override
-    public String toString() {
-        return "Connections{" +
-                "connectionID=" + connectionID +
-                ", departureAirportID=" +
-                ", arrivalAirportID=" +
-                ", flightTime='" + '\'' +
-                ", ticketCost=" +
-                '}';
+        @Override
+        public String toString() {
+            return "Connections{" +
+                    "connectionID=" + connectionID +
+                    ", departureAirportID=" +
+                    ", arrivalAirportID=" +
+                    ", flightTime='" + '\'' +
+                    ", ticketCost=" +
+                    '}';
+        }
     }
-}
 

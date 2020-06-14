@@ -8,17 +8,17 @@ import java.util.stream.Collectors;
 
 public class TicketMapper {
 
-    public static List<TicketDTO> mapTicketListoToDTO(List<Ticket> ticketList) {
+    public static List<TicketDTO> mapTicketListoToDTO(List<Ticket> ticketList){
 
         return ticketList.stream().map(ticket -> getTicket(ticket)).collect(Collectors.toList());
     }
 
-    public static TicketDTO mapTicketToDTO(Ticket ticket) {
+    public static TicketDTO mapTicketToDTO(Ticket ticket){
 
         return getTicket(ticket);
     }
 
-    public static Ticket mapDTOToTicket(TicketDTO ticketDTO) {
+    public static Ticket mapDTOToTicket(TicketDTO ticketDTO){
         Ticket ticket = new Ticket();
 
         ticket.setTicketID(ticketDTO.getTicketID());

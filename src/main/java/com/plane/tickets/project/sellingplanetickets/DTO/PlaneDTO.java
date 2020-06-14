@@ -18,20 +18,20 @@ import java.util.List;
 @Accessors(chain = true)
 public class PlaneDTO {
 
-    private int planeID;
-    private String planeName;
-    private List<Flight> flights;
+        private int planeID;
+        private String planeName;
+        private List<Flight> flights;
 
-    public PlaneDTO(String planeName) {
-        this.planeName = planeName;
-    }
+        public PlaneDTO(String planeName) {
+            this.planeName = planeName;
+        }
 
-    @Override
-    public String toString() {
-        return "Plane{" +
-                "planeID=" + planeID +
-                ", planeName='" + planeName + '\'' +
-                '}';
+        @Override
+        public String toString() {
+            return "Plane{" +
+                    "planeID=" + planeID +
+                    ", planeName='" + planeName + '\'' +
+                    '}';
+        }
     }
-}
 

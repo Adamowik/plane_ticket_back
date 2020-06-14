@@ -32,4 +32,13 @@ public class SeatsController {
         return seatsService.getSeat(id);
     }
 
+    @PostMapping(value = "/seats")
+    public void addSeat(@RequestBody SeatsDTO seat) {
+        seatsService.addSeat(seat);
+    }
+
+    @DeleteMapping(value = "/seats/{id}")
+    public void deleteSeat(@PathVariable int id) {
+        seatsService.deleteSeat(id);
+    }
 }

@@ -11,7 +11,7 @@ public class SignUpForm {
     private String username;
 
     private String email;
-
+    
     private Set<String> role;
 
     private String password;
@@ -19,6 +19,7 @@ public class SignUpForm {
     private String surname;
 
     private String phoneNumber;
+
 
 
     public String getName() {
@@ -52,13 +53,13 @@ public class SignUpForm {
     public void setPassword(String password) {
         this.password = password;
     }
-
+    
     public Set<String> getRole() {
-        return this.role;
+    	return this.role;
     }
-
+    
     public void setRole(Set<String> role) {
-        this.role = role;
+    	this.role = role;
     }
 
     public String getSurname() {

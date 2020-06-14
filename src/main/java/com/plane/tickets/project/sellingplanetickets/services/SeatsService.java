@@ -31,8 +31,17 @@ public class SeatsService {
     }
 
     public SeatsDTO getSeat(int id) {
-        Seats seats = seatsRepository.findById(id).get();
+        Seats seats =  seatsRepository.findById(id).get();
         return SeatsMapper.mapSeatsToDTO(seats);
+    }
+
+    public void addSeat(SeatsDTO seatsDTO) {
+        Seats seats = SeatsMapper.mapDTOtoSeats(seatsDTO);
+        seatsRepository.save(seats);
+    }
+
+    public void deleteSeat(int id) {
+        seatsRepository.deleteById(id);
     }
 
 }

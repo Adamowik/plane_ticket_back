@@ -1,5 +1,4 @@
 package com.plane.tickets.project.sellingplanetickets.model;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
@@ -20,18 +19,18 @@ public class Connections {
     private List<Flight> flights;
 
     @ManyToOne(cascade = {CascadeType.ALL})
-    @JoinColumn(name = "departure_airport_id")
+    @JoinColumn(name="departure_airport_id")
     private Airport departureAirport;
 
     @ManyToOne(cascade = {CascadeType.ALL})
-    @JoinColumn(name = "arrival_airport_id")
+    @JoinColumn(name="arrival_airport_id")
     private Airport arrivalAirport;
 
     public Connections() {
 
     }
 
-    public Connections(Airport departureAirport, Airport arrivalAirport) {
+    public Connections( Airport departureAirport, Airport arrivalAirport) {
         this.departureAirport = departureAirport;
         this.arrivalAirport = arrivalAirport;
     }

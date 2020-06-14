@@ -9,17 +9,17 @@ import java.util.stream.Collectors;
 public class SeatsMapper {
 
 
-    public static List<SeatsDTO> mapSeatListToDTO(List<Seats> seatsList) {
+    public static List<SeatsDTO> mapSeatListToDTO(List<Seats> seatsList){
 
         return seatsList.stream().map(SeatsMapper::getSeatsDTO).collect(Collectors.toList());
     }
 
-    public static SeatsDTO mapSeatsToDTO(Seats seats) {
+    public static SeatsDTO mapSeatsToDTO(Seats seats){
 
         return getSeatsDTO(seats);
     }
 
-    public static Seats mapDTOtoSeats(SeatsDTO seatsDTO) {
+    public static Seats mapDTOtoSeats(SeatsDTO seatsDTO){
         Seats seats = new Seats();
 
         seats.setSeatID(seatsDTO.getSeatID());
@@ -33,7 +33,7 @@ public class SeatsMapper {
 
     }
 
-    private static SeatsDTO getSeatsDTO(Seats seats) {
+    private static SeatsDTO getSeatsDTO(Seats seats){
 
         SeatsDTO seatsDTO = new SeatsDTO();
 

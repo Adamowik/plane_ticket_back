@@ -17,20 +17,20 @@ import javax.persistence.*;
 public class SeatsDTO {
 
 
-    private int seatID;
-    private int category;
-    private int whichRow;
-    private int place;
-    private boolean isFree;
-    private Flight flight;
+        private int seatID;
+        private int category;
+        private int whichRow;
+        private int place;
+        private boolean isFree;
+        private Flight flight;
 
-    public SeatsDTO(int category, int whichRow, int place, boolean isFree, Flight flight) {
-        this.category = category;
-        this.whichRow = whichRow;
-        this.place = place;
-        this.isFree = isFree;
-        this.flight = flight;
-    }
+        public SeatsDTO(int category, int whichRow, int place, boolean isFree, Flight flight) {
+            this.category = category;
+            this.whichRow = whichRow;
+            this.place = place;
+            this.isFree = isFree;
+            this.flight = flight;
+        }
 
 
 }

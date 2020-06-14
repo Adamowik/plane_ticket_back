@@ -34,11 +34,11 @@ public class Ticket {
     private boolean insurance;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name="user_id")
     private User user;
 
     @ManyToOne
-    @JoinColumn(name = "flight_id")
+    @JoinColumn(name="flight_id")
     private Flight flight;
 
     @Column(name = "phone_number")

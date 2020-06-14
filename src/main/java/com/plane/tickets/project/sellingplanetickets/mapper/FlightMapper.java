@@ -8,19 +8,20 @@ import java.util.stream.Collectors;
 
 public class FlightMapper {
 
-    public static List<FlightDTO> mapFlightToFlightDTOList(List<Flight> flights) {
+    public static List<FlightDTO> mapFlightToFlightDTOList(List<Flight> flights){
 
         return flights.stream().map(FlightMapper::getFlightDTO).collect(Collectors.toList());
     }
 
 
-    public static FlightDTO mapFlightToDTO(Flight flight) {
+
+    public static FlightDTO mapFlightToDTO(Flight flight){
 
         return getFlightDTO(flight);
     }
 
 
-    public static Flight mapDTOToFlight(FlightDTO flightDTO) {
+    public static Flight mapDTOToFlight(FlightDTO flightDTO){
         Flight flight = new Flight();
 
         flight.setFlightID(flightDTO.getFlightID());
@@ -37,7 +38,7 @@ public class FlightMapper {
         return flight;
     }
 
-    private static FlightDTO getFlightDTO(Flight flight) {
+    private static FlightDTO getFlightDTO(Flight flight){
         FlightDTO flightDTO = new FlightDTO();
 
         flightDTO

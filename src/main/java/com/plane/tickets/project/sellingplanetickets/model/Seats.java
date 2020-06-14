@@ -26,7 +26,7 @@ public class Seats {
 
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "flight_id")
+    @JoinColumn(name="flight_id")
     private Flight flight;
 
     public Seats() {

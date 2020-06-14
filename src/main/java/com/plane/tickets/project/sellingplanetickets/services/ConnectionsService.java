@@ -28,6 +28,20 @@ public class ConnectionsService {
         return ConnectionMapper.mapConnectionToDTO(connections);
     }
 
+    public void addConnections(ConnectionsDTO connectionsDTO) {
+        Connections connections = ConnectionMapper.mapDTOToConnection(connectionsDTO);
+        connectionsRepository.save(connections);
+    }
+
+    public void updateConnections(ConnectionsDTO connectionsDTO, int id) {
+        Connections connections = ConnectionMapper.mapDTOToConnection(connectionsDTO);
+        connectionsRepository.save(connections);
+    }
+
+    public void deleteConnections(int id) {
+        connectionsRepository.deleteById(id);
+    }
+
     public List<ConnectionsDTO> getConnectionsByArrivalAirport(int id) {
         List<Connections> connections = new ArrayList<>();
         connectionsRepository.findByArrivalAirportAirportID(id).forEach(connections::add);

@@ -35,11 +35,11 @@ public class Flight {
     private int ticketCost;
 
     @ManyToOne
-    @JoinColumn(name = "connection_id")
+    @JoinColumn(name="connection_id")
     private Connections connection;
 
     @ManyToOne
-    @JoinColumn(name = "plane_id")
+    @JoinColumn(name="plane_id")
     private Plane plane;
 
     @JsonIgnore
