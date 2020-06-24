@@ -17,10 +17,8 @@ public class TestJDBC {
             Connection myConn = DriverManager.getConnection(jdbcUrl,user,password);
 
             System.out.println("Connection succesful ");
-            System.out.println(myConn.isValid(10));
         }
         catch(Exception e){
-            System.out.println("aa");
             e.printStackTrace();
         }
 
