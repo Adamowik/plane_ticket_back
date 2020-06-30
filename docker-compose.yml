@@ -8,4 +8,4 @@ services:
       MYSQL_DATABASE: flightsdatabase
       MYSQL_PASSWORD: admin
     ports:
-      - "6603:3306"
+      - "3306:3306"
