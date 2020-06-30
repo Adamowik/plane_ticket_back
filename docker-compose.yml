@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  mysql-database:
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_DATABASE: flightsdatabase
+      MYSQL_PASSWORD: admin
+    ports:
+      - "6603:3306"
