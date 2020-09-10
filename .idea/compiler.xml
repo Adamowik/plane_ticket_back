@@ -6,13 +6,15 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="selling-plane" />
+        <module name="plane_ticket_back" />
         <module name="selling-plane-tickets" />
+        <module name="selling-plane" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="plane_ticket_back" options="-parameters" />
       <module name="selling-plane" options="-parameters" />
       <module name="selling-plane-tickets" options="-parameters" />
     </option>
