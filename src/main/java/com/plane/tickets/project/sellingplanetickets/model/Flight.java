@@ -1,13 +1,18 @@
 package com.plane.tickets.project.sellingplanetickets.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.plane.tickets.project.sellingplanetickets.model.Connections;
-import com.plane.tickets.project.sellingplanetickets.model.Plane;
-import com.plane.tickets.project.sellingplanetickets.model.Seats;
-import com.plane.tickets.project.sellingplanetickets.model.Ticket;
 
-import javax.persistence.*;
-import java.util.Date;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -20,13 +25,13 @@ public class Flight {
     private int flightID;
 
     @Column(name = "departure_date")
-    private Date departureDate;
+    private LocalDate departureDate;
 
     @Column(name = "departure_time")
     private String departureTime;
 
     @Column(name = "arrival_date")
-    private Date arrivalDate;
+    private LocalDate arrivalDate;
 
     @Column(name = "arrival_time")
     private String arrivalTime;
@@ -55,7 +60,7 @@ public class Flight {
 
     }
 
-    public Flight(int connectionID, int planeID, Date departureDate, String departureTime, Date arrivalDate, String arrivalTime, int ticketCost, Connections connection, Plane plane) {
+    public Flight(int connectionID, int planeID, LocalDate departureDate, String departureTime, LocalDate arrivalDate, String arrivalTime, int ticketCost, Connections connection, Plane plane) {
         this.departureDate = departureDate;
         this.departureTime = departureTime;
         this.arrivalDate = arrivalDate;
@@ -89,11 +94,11 @@ public class Flight {
         this.flightID = flightID;
     }
 
-    public Date getDepartureDate() {
+    public LocalDate getDepartureDate() {
         return departureDate;
     }
 
-    public void setDepartureDate(Date departureDate) {
+    public void setDepartureDate(LocalDate departureDate) {
         this.departureDate = departureDate;
     }
 
@@ -105,11 +110,11 @@ public class Flight {
         this.departureTime = departureTime;
     }
 
-    public Date getArrivalDate() {
+    public LocalDate getArrivalDate() {
         return arrivalDate;
     }
 
-    public void setArrivalDate(Date arrivalDate) {
+    public void setArrivalDate(LocalDate arrivalDate) {
         this.arrivalDate = arrivalDate;
     }
 

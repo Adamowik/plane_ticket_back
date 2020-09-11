@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.Accessors;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 @AllArgsConstructor
@@ -21,9 +21,9 @@ import java.util.List;
 public class FlightDTO {
 
     private int flightID;
-    private Date departureDate;
+    private LocalDate departureDate;
     private String departureTime;
-    private Date arrivalDate;
+    private LocalDate arrivalDate;
     private String arrivalTime;
     private int ticketCost;
     private Connections connection;
