@@ -11,14 +11,12 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 
 @Service
 public class NotificationService {
 
-    private JavaMailSender javaMailSender;
+    private final JavaMailSender javaMailSender;
 
     @Autowired
     public NotificationService(JavaMailSender javaMailSender){
@@ -39,9 +37,7 @@ public class NotificationService {
 
         Ticket ticket = TicketMapper.mapDTOToTicket(ticketDTO);
         SimpleMailMessage mail = new SimpleMailMessage();
-
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-
+        DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
         String dateStringDeparture = format.format(ticket.getFlight().getDepartureDate());
         String dateStringArrival = format.format(ticket.getFlight().getArrivalDate());
