@@ -17,8 +17,7 @@ public class WebSocketController {
     @MessageMapping("/send/message")
     @SendTo("/seats/reserved")
     public SeatsDTO greeting(SeatsDTO seat) {
-        this.seatsService.addSeat(seat);
-        System.out.println(seat.toString());
+        this.seatsService.reserveSeat(seat);
         return seat;
     }
 }

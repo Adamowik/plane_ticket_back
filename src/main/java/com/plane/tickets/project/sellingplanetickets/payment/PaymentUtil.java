@@ -1,22 +1,20 @@
 package com.plane.tickets.project.sellingplanetickets.payment;
 
-import com.plane.tickets.project.sellingplanetickets.payment.PaymentDetail;
-
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Random;
 
 public class PaymentUtil {
 
-    private static final String paymentKey = "gtKFFx";
+    private static final String paymentKey = "QylhKRVd";
 
-    private static final String paymentSalt = "eCwWELxi";
+    private static final String paymentSalt = "seVTUgzrgE";
 
     private static final String sUrl = "http://localhost:8080/payment/payment-response";
 
     private static final String fUrl = "http://localhost:8080/payment/payment-response";
 
-    public static PaymentDetail populatePaymentDetail(PaymentDetail paymentDetail){
+    public static PaymentDetail populatePaymentDetail(PaymentDetail paymentDetail) {
         String hashString = "";
         Random rand = new Random();
         String randomId = Integer.toString(rand.nextInt()) + (System.currentTimeMillis() / 1000L);
@@ -24,8 +22,9 @@ public class PaymentUtil {
         paymentDetail.setTxnId(txnId);
         String hash = "";
         //String otherPostParamSeq = "phone|surl|furl|lastname|curl|address1|address2|city|state|country|zipcode|pg";
-        String hashSequence = "key|txnid|amount|productinfo|firstname|email|||||||||||";
-        hashString = hashSequence.concat(paymentSalt);
+//        String hashSequence = "key|txnid|amount|productinfo|firstname|email|||||||||||";
+//        hashString = hashSequence.concat(paymentSalt);
+        hashString = hashString.replace("salt", paymentSalt);
         hashString = hashString.replace("key", paymentKey);
         hashString = hashString.replace("txnid", txnId);
         hashString = hashString.replace("amount", paymentDetail.getAmount());
@@ -48,7 +47,7 @@ public class PaymentUtil {
             MessageDigest algorithm = MessageDigest.getInstance(type);
             algorithm.reset();
             algorithm.update(hashseq);
-            byte messageDigest[] = algorithm.digest();
+            byte[] messageDigest = algorithm.digest();
             for (int i = 0; i < messageDigest.length; i++) {
                 String hex = Integer.toHexString(0xFF & messageDigest[i]);
                 if (hex.length() == 1) {

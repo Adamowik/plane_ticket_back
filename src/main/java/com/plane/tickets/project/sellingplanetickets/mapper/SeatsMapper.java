@@ -3,6 +3,7 @@ package com.plane.tickets.project.sellingplanetickets.mapper;
 import com.plane.tickets.project.sellingplanetickets.DTO.SeatsDTO;
 import com.plane.tickets.project.sellingplanetickets.model.Seats;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -33,7 +34,13 @@ public class SeatsMapper {
 
     }
 
-    private static SeatsDTO getSeatsDTO(Seats seats){
+    public static Seats mapDTOToSeatsForReservation(SeatsDTO seatsDTO) {
+        Seats seats = mapDTOtoSeats(seatsDTO);
+        seats.setTemporarilyReservationTime(LocalDateTime.now());
+        return seats;
+    }
+
+    private static SeatsDTO getSeatsDTO(Seats seats) {
 
         SeatsDTO seatsDTO = new SeatsDTO();
 

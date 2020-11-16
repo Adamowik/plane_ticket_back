@@ -1,9 +1,24 @@
 package com.plane.tickets.project.sellingplanetickets.model;
 
-import javax.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "seats")
+@Getter
+@Setter
 public class Seats {
 
     @Id
@@ -24,9 +39,12 @@ public class Seats {
     @Column(name = "is_free")
     private boolean isFree;
 
+    @Column(name = "temporarily_reservation_time")
+    private LocalDateTime temporarilyReservationTime;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="flight_id")
+
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "flight_id")
     private Flight flight;
 
     public Seats() {
@@ -38,54 +56,6 @@ public class Seats {
         this.whichRow = whichRow;
         this.place = place;
         this.isFree = isFree;
-        this.flight = flight;
-    }
-
-    public int getSeatID() {
-        return seatID;
-    }
-
-    public void setSeatID(int seatID) {
-        this.seatID = seatID;
-    }
-
-    public int getCategory() {
-        return category;
-    }
-
-    public void setCategory(int category) {
-        this.category = category;
-    }
-
-    public int getWhichRow() {
-        return whichRow;
-    }
-
-    public void setWhichRow(int whichRow) {
-        this.whichRow = whichRow;
-    }
-
-    public int getPlace() {
-        return place;
-    }
-
-    public void setPlace(int place) {
-        this.place = place;
-    }
-
-    public boolean isFree() {
-        return isFree;
-    }
-
-    public void setFree(boolean free) {
-        isFree = free;
-    }
-
-    public Flight getFlight() {
-        return flight;
-    }
-
-    public void setFlight(Flight flight) {
         this.flight = flight;
     }
 }
